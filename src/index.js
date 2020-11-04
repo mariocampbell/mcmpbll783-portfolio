@@ -1,12 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import './tailwind.output.css';
-import App from './App.jsx';
+import './index.scss'
+import App from './App.jsx'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('app')
-);
+ReactDOM.render( <App />, document.querySelector('#app') )
