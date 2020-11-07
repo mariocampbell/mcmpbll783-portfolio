@@ -78,7 +78,14 @@ module.exports = {
             template: path.join(__dirname, 'public/index.html'),
             favicon: path.join(__dirname, 'src/images/favicon.png')
         }),
-        new PurgeCSSPlugin({ paths: glob.sync([ `${PATHS.public}/**/*`, `${PATHS.src}/**/*`], { nodir: true }) }),
+        new PurgeCSSPlugin({
+          paths: glob.sync([ `${PATHS.public}/**/*`, `${PATHS.src}/**/*`], { nodir: true }),
+          defaultExtractor: content => {
+            const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
+            const innerMatches = content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || []
+            return broadMatches.concat(innerMatches)
+          }
+        }),
     ],
 
     devServer: {

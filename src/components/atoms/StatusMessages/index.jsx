@@ -52,7 +52,7 @@ class StatusMessages extends React.Component {
             default:
                 return(
                     <div className="mb-6 md:mb-0">
-                        <p className='text-sm py-2 px-4 shadow border-l-2 border-gray-500 text-gray-600' >
+                        <p className='text-sm py-2 px-4 text-gray-600' >
                             <i className="fas fa-asterisk mr-2" ></i> { message === '' ? 'Campos requeridos y obligatorios.' : message }
                         </p>
                     </div>
